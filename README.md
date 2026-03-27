@@ -63,7 +63,7 @@ The skill modifies *how* the agent codes with you, not *what* it builds. All nor
 
 ## About
 
-Built by [az8T Lab](https://az8tlab.app). Based on the same research behind the [Predict](https://marketplace.visualstudio.com/items?itemName=az8tlab.predict) VS Code extension.
+Built by [az8T Lab](https://az8tlab.app). Based on the same research behind the [Predict](https://marketplace.visualstudio.com/items?itemName=az8tlab.predict-ai-calibration) VS Code extension.
 
 ## License
 
