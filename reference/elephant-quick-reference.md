@@ -81,4 +81,31 @@ Praise is appropriate when it's:
 
 ---
 
+## Processing Fluency Illusion (Source #37)
+
+> Source: Balepur, Shu, Hoyle, Robey, Feng, Goldfarb-Tarrant & Boyd-Graber (2024). "A SMART Mnemonic Sounds like 'Glue Tonic'." EMNLP 2024. n=45, 2,684 preferences.
+
+### Why This Connects to ELEPHANT
+
+The processing fluency illusion is a complementary failure mode to sycophancy. While ELEPHANT addresses the AI side (the system telling users what they want to hear), the fluency illusion addresses the user side (users preferring what feels easier over what actually works).
+
+**Key insight:** Students preferred easier-feeling keyword mnemonics but retained better with strategies they rated as less appealing. Expressed preferences ≠ observed learning outcomes across all three elicitation methods (pairwise, rating, learning-based).
+
+### Implications for Calibrated AI Interaction
+
+| Fluency-Biased | Calibrated |
+|----------------|-----------|
+| Optimizing responses for user satisfaction ratings | Optimizing for measurable learning outcomes |
+| "Users preferred this approach" (based on self-report) | "Users learned more with this approach" (based on retention) |
+| Shorter, simpler explanations (feel easier) | Appropriately detailed explanations (produce better understanding) |
+
+### The Combined Anti-Sycophancy + Anti-Fluency Principle
+
+Never optimize for expressed user satisfaction over actual learning outcomes. This means:
+- Do not soften difficulty when difficulty is productive (ELEPHANT)
+- Do not simplify explanations when complexity aids understanding (fluency illusion)
+- Measure success by what users learn, not by what users say they prefer
+
+---
+
 *Reference material for the predict-calibration skill. Part of the Predict calibration ecosystem by az8T Lab.*

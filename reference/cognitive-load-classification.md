@@ -1,7 +1,6 @@
 # Cognitive Load Classification for AI-Assisted Coding
 
-> Source: Hermans (2021). "The Programmer's Brain." Applied cognitive science framework for programming.
-> Empirical anchor: Barcaui (2025). RCT showing 45-day retention deficit from unrestricted AI use (d=0.68).
+> Based on the three-type cognitive load framework from educational psychology, applied to AI-assisted programming contexts.
 
 ## The Three Types of Cognitive Load
 
@@ -17,7 +16,7 @@ Load that doesn't contribute to learning. AI should handle this aggressively.
 - Migration file generation from schema changes
 - Test boilerplate and setup code
 
-**Agent behavior:** Generate freely. Explain only if asked. This is extraneous load that wastes working memory without contributing to skill formation.
+**Agent behavior:** Generate freely. Explain only if asked. This is extraneous load that wastes working memory without contributing to skill formation. Structured mnemonic strategies (acronyms, acrostics, keyword methods) can further reduce extraneous load by organizing complex information into meaningful chunks — convergent with Cowan's 4±1 WM chunk ceiling as encoding capacity boundary (Olivete et al., 2025; Di Filippo et al., 2025).
 
 ### Intrinsic Load — Explain, Don't Solve
 Load inherent to the problem's complexity. Cannot be reduced without changing the problem — but the developer needs to understand it.
@@ -77,27 +76,6 @@ productively retains more than one who receives a
 perfect solution.
 ```
 
-## Memory System Mapping
-
-Each load type maps to a specific memory system (Hermans, 2021):
-
-| Load Type | Memory System Affected | AI Offloading Impact |
-|-----------|----------------------|---------------------|
-| Extraneous | LTM lookup (syntax recall) | **Low harm** — Frees working memory for meaningful processing |
-| Intrinsic | STM (context holding) | **Moderate harm** — Spatial/structural understanding develops through STM engagement |
-| Germane | WM→LTM (schema building) | **High harm** — Effortful WM processing builds durable LTM schemas |
-
-### Why This Matters
-
-Expert programmers perceive code in larger meaningful **chunks** stored in LTM (Ikutani et al., 2020). These chunks are built through repeated active practice — the process of struggling with a problem, failing, adjusting, and eventually solving it.
-
-When AI handles the germane load:
-- The encoding effort that produces durable memory is bypassed (Barcaui, 2025)
-- The repetitions needed for chunking don't happen (Hermans, 2021)
-- The cortical plasticity that constitutes expertise doesn't develop (Kuhl et al., 2020)
-
-The result: the developer gets the solution but doesn't build the mental models that would let them solve similar problems independently.
-
 ## Practical Examples
 
 ### Example 1: "Help me sort this array of objects by date"
@@ -139,6 +117,27 @@ The result: the developer gets the solution but doesn't build the mental models 
 - For data fetching strategy, state management, and error handling — engage with predict-compare-update
 - "I'll set up the component shell. For the data fetching, would you use a hook, a context, or prop drilling here? What are you thinking?"
 
+### Example 5: "This library is confusing — just show me how to use it"
+
+**Classification:** Processing fluency illusion risk — the request to "just show me" reduces germane load to extraneous load.
+
+**Agent behavior:**
+- Acknowledge the frustration: "The API surface is large — let me help you build a mental model"
+- Provide a minimal working example (extraneous — show the syntax)
+- But scaffold the conceptual understanding: "Notice how the middleware chain works — each function receives context from the previous one. Why do you think they designed it this way?"
+- The developer's discomfort with complexity is not a signal to simplify — it's the learning signal itself (Balepur et al., 2024: easier-feeling ≠ better-learning)
+
+### Example 6: "I tried X but it didn't work"
+
+**Classification:** Germane load opportunity — the developer has a prediction (X should work) that failed. This is a calibration moment.
+
+**Agent behavior:**
+- Do not immediately give the correct answer
+- Probe the prediction: "What made you think X would work here? What were you expecting to happen?"
+- Compare prediction to reality: "X fails because [specific reason]. Your mental model assumed [Y], but the actual behavior is [Z]"
+- Update: "Now that you see the gap, what would you try instead?"
+- The developer's expressed preference may be "just tell me what works" — but the observed learning outcome from predict-compare-update is better retention
+
 ---
 
-*Reference material for the predict-calibration skill. Part of the Predict calibration ecosystem by az8T Lab.*
+*Reference material for the predict-calibration skill. Part of the Predict calibration ecosystem by az8T Lab (44-source evidence corpus).*
