@@ -4,7 +4,7 @@ AI Agent skill that applies calibration thinking to AI-assisted coding — prese
 
 ## What It Does
 
-When installed, this skill modifies how Replit Agent interacts with you:
+When installed, this skill modifies how AI agents  interact with you:
 
 - **Predict-Compare-Update** — Before generating solutions to meaningful problems, the agent asks what approach you'd take. After you predict, it shows its solution and highlights where your thinking aligned or diverged. This preserves the encoding effort that builds lasting skill.
 - **ELEPHANT Anti-Sycophancy** — Instead of "Great approach!" when your code has a bug, the agent gives direct, specific feedback. Based on research showing sycophantic AI feedback actively harms judgment quality (Cheng et al., 2026, *Science*).
