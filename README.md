@@ -23,7 +23,7 @@ git clone https://github.com/az8tlab/predict-calibration-skill.git .agents/skill
 
 **Option 2 — Manual download:**
 
-Download this repository and place the contents into `.agents/skills/predict-calibration/` in your Repl.
+Download this repository and place the contents into, for example, `.agents/skills/predict-calibration/` for Repl. or wheras appropriate in your agent's skills folder.
 
 That's it. No backend, no API keys, no dependencies. The skill is self-contained — it just changes agent behavior.
 
