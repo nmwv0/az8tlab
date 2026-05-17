@@ -1,6 +1,6 @@
 # predict-calibration
 
-AI Agent skill that applies calibration thinking to AI-assisted coding — preserving your skill formation while still benefiting from AI assistance.
+Agent skill that applies calibration thinking to AI-assisted coding — preserving your skill formation while still benefiting from AI assistance.
 
 ## What It Does
 
