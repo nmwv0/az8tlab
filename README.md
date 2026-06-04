@@ -1,13 +1,13 @@
 # predict-calibration
 
-Agent skill that applies calibration thinking to AI-assisted coding — preserving your skill formation while still benefiting from AI assistance.
+A Replit Agent skill that applies calibration thinking to AI-assisted coding — preserving your skill formation while still benefiting from AI assistance.
 
 ## What It Does
 
-When installed, this skill modifies how AI agents  interact with you:
+When installed, this skill modifies how Replit Agent interacts with you:
 
 - **Predict-Compare-Update** — Before generating solutions to meaningful problems, the agent asks what approach you'd take. After you predict, it shows its solution and highlights where your thinking aligned or diverged. This preserves the encoding effort that builds lasting skill.
-- **ELEPHANT Anti-Sycophancy** — Instead of "Great approach!" when your code has a bug, the agent gives direct, specific feedback. Based on research showing sycophantic AI feedback actively harms judgment quality (Cheng et al., 2026, *Science*).
+- **ELEPHANT Anti-Sycophancy** — Instead of "Great approach!" when your code has a bug, the agent gives direct, specific feedback. Research shows sycophantic AI feedback actively harms judgment quality.
 - **Cognitive Load Classification** — Boilerplate, syntax, and config get generated freely (that's what AI is good for). Algorithm design, debugging, and architecture get scaffolded so you actually learn.
 - **Schema Rigidity Detection** — When you keep reaching for the same pattern, the agent gently surfaces alternatives you might not have considered.
 
@@ -18,37 +18,37 @@ It doesn't slow you down on mechanical work. It kicks in where the learning actu
 **Option 1 — Git clone (recommended):**
 
 ```bash
-git clone https://github.com/az8tlab/predict-calibration-skill.git .agents/skills/predict-calibration
+git clone https://github.com/nmwv0/az8tlab.git .agents/skills/predict-calibration
 ```
 
 **Option 2 — Manual download:**
 
-Download this repository and place the contents into, for example, `.agents/skills/predict-calibration/` for Repl. or wheras appropriate in your agent's skills folder.
+Download this repository and place the contents into `.agents/skills/predict-calibration/` in your Repl.
 
 That's it. No backend, no API keys, no dependencies. The skill is self-contained — it just changes agent behavior.
 
 ## File Structure
 
 ```
-predict-calibration-skill/
+az8tlab/
 ├── README.md                                  # This file
 ├── SKILL.md                                   # Main skill definition (agent reads this)
 └── reference/
-    ├── evidence-summary.md                    # 34-source evidence corpus summary
+    ├── evidence-summary.md                    # 58-source evidence brief
+
     ├── elephant-quick-reference.md            # ELEPHANT anti-sycophancy taxonomy
     └── cognitive-load-classification.md       # Extraneous / intrinsic / germane guide
 ```
 
 ## Evidence Base
 
-The methodology is grounded in a 34-source evidence corpus spanning neuroscience of programming, educational psychology, AI-skill interaction, and judgment quality research. Key findings:
+The methodology is grounded in a 58-source evidence corpus (peer-reviewed publications plus qualified preprints) spanning neuroscience of programming, educational psychology, AI-skill interaction, judgment quality research, and mnemonic encoding optimization. The evidence converges on a core finding: how developers interact with AI tools — not just whether they use them — determines whether skills are preserved or eroded.
 
-| Study | Finding | Scale |
-|-------|---------|-------|
-| Shen & Tamkin (2026) | Predict-compare-update interaction pattern is associated with better skill formation than passive AI delegation | n=52 |
-| Barcaui (2025) | Unrestricted AI use is associated with an 11 percentage point retention deficit at 45 days | n=120, d=0.68 |
-| Cheng et al. (2026) | Sycophantic AI feedback is associated with worse judgment than honest feedback or no AI at all | n=6,321, 11 experiments |
-| Hermans (2021) | Germane cognitive load (reasoning, debugging) is where skill formation happens — AI should scaffold it, not replace it | Applied framework |
+Key research themes include:
+- **Interaction pattern matters** — Prediction-based engagement with AI is associated with better skill formation than passive delegation
+- **Retention deficits from unrestricted AI use** — Controlled studies show measurable retention deficits when AI eliminates productive struggle
+- **Sycophancy harms judgment** — Large-scale research demonstrates that unwarranted positive AI feedback makes decisions worse, not just unhelpful
+- **Cognitive load classification** — Not all AI help is equal; automating boilerplate is safe, but replacing reasoning and debugging prevents learning
 
 ### Honest Qualifiers
 
