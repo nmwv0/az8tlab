@@ -1,70 +1,112 @@
-# predict-calibration
+# Predict agent skill
 
-AI Agent skill that applies calibration thinking to AI-assisted coding — preserving your skill formation while still benefiting from AI assistance.
+### Help me finish. Help me understand when I ask.
 
-## What It Does
+**This skill gives a compatible AI agent instructions for optional learning support and evidence-based feedback.** It is designed for coding, debugging and review. Unlike the Predict extension, it has no sidebar, completion detector or score tracker. You do not need the extension to use it.
 
-When installed, this skill modifies how Replit Agent interacts with you:
+```text
+Want the result?         →  Direct help, without a quiz.
+Want to understand?     →  Predict → Check → Revise.
+Evidence changes?      →  Correct the answer, whoever gave it.
+```
 
-- **Predict-Compare-Update** — Before generating solutions to meaningful problems, the agent asks what approach you'd take. After you predict, it shows its solution and highlights where your thinking aligned or diverged. This preserves the encoding effort that builds lasting skill.
-- **ELEPHANT Anti-Sycophancy** — Instead of "Great approach!" when your code has a bug, the agent gives direct, specific feedback. Research shows sycophantic AI feedback actively harms judgment quality.
-- **Cognitive Load Classification** — Boilerplate, syntax, and config get generated freely (that's what AI is good for). Algorithm design, debugging, and architecture get scaffolded so you actually learn.
-- **Schema Rigidity Detection** — When you keep reaching for the same pattern, the agent gently surfaces alternatives you might not have considered.
+## Choose your kind of help
 
-It doesn't slow you down on mechanical work. It kicks in where the learning actually happens.
+**“Help me understand this bug.”**
+
+The agent can invite one short prediction, compare it with the code or a test, and explain one useful distinction.
+
+**“Just fix it. No explanation.”**
+
+The agent should do the work without a teaching exercise. “I don’t know” and “skip” also end a prediction prompt. “No quizzes this session” applies for the session.
+
+**“Give me a different example to practise.”**
+
+The agent can offer optional, untimed practice. Reveal, skip or stop whenever you prefer.
+
+> **One useful distinction**
+>
+> “The AI agrees with me” is not a correctness check. “This input produces the required result” is evidence, with a scope. The skill asks the agent to make that difference clear.
+
+Accuracy and necessary safety checks still apply when teaching is declined. Emergencies and routine mechanical work do not need learning prompts.
+
+## Why it exists
+
+AI can help you produce code. Learning to code gives you opportunities to ask better questions about it: what should happen, why did it fail, and how could it be improved? Predict makes room for both getting work done and practising that reasoning—with optional predictions, explanations and concrete checks.
+
+AI can help you finish code before you understand why it works. That matters when you need to adapt it, investigate a failure or review an important change. Predict makes room for your understanding without turning every request into a lesson.
+
+Learning and practising coding give you opportunities to break a problem down, compare solutions and revise an assumption. The skill brings those activities into a conversation you are already having:
+
+| Your goal | What to ask |
+|---|---|
+| Understand a new concept | “Help me trace this with one input.” |
+| Review a consequential change | “Compare my expectation with this refactor and suggest a check.” |
+| Explore a different approach | “Show one alternative and explain when it would be a better fit.” |
+
+**The aim is something you can use again:** a clearer explanation, a corrected assumption or a better test. Compare approaches for correctness, readability and performance in context, rather than treating more complicated or faster code as automatically better.
+
+### One small example
+
+You expect a greeting to use “world” for a blank name, but a spaces-only name slips through.
+
+**Expectation → Difference → Check**
+
+The agent uses the expectation you already gave, explains why trimming must happen before choosing the fallback, and checks a spaces-only input. If it cannot run the code, it gives you the expected result and says the check has not been run. The underlying rule transfers across languages; the syntax changes.
+
+You do not need another quiz to finish that exchange. If you want more practice, ask for a different example.
+
+### Why practice matters
+
+Neuroplasticity is the brain’s capacity to adapt through experience. In coding, breaking down a problem, checking an assumption and revising a solution are chances to practise useful ways of thinking.
+
+[Mera and colleagues’ word-pair experiments](https://doi.org/10.3758/s13421-025-01813-x) found that trying to recall or answer before seeing the material, followed by feedback, improved later recall compared with copying. The study was about memory, not coding.
+
+In [Shen and Tamkin’s 2026 coding study](https://www.anthropic.com/research/AI-assistance-coding-skills), 52 mostly junior developers learned an unfamiliar Python library. The AI-assisted group scored lower on an immediate understanding quiz. Within that group, exploring explanations was associated with stronger results than delegating the work; that interaction pattern was not separately randomized.
+
+Learning to code can matter beyond producing software. [Scherer, Siddiq and Sánchez-Scherer (2021)](https://doi.org/10.3389/fpsyg.2021.559424) discuss possible benefits for reasoning, creativity and mathematics, drawing on earlier research. Their perspective offers a reason to value coding practice, but does not establish how long benefits last or how widely they transfer.
+
+These sources address different questions; none tests Predict. The skill’s practical aim is to help you use AI while keeping room to reason, compare and check. See the [evidence brief](reference/evidence-summary.md) for source details and limits.
+
+If writing an explanation feels unnecessary, ask for a few rationale choices instead. You may change a choice, request the explanation directly or stop. The agent should reuse the context you supplied, accept equivalent wording and never convert uncertainty into another compulsory quiz.
+
+Unlike a tutorial, this skill works with your current problem. Unlike the extension, it guides the conversation rather than keeping an editor comparison or local history. It is a set of instructions for an agent, not a separate AI model.
 
 ## Install
 
-**Option 1 — Git clone (recommended):**
+In a host that supports this layout, copy the **contents** of this folder into:
 
-```bash
-git clone https://github.com/nmwv0/az8tlab.git .agents/skills/predict-calibration
-```
-
-**Option 2 — Manual download:**
-
-Download this repository and place the contents into `.agents/skills/predict-calibration/` in your Repl.
-
-That's it. No backend, no API keys, no dependencies. The skill is self-contained — it just changes agent behavior.
-
-## File Structure
-
-```
-az8tlab/
-├── README.md                                  # This file
-├── SKILL.md                                   # Main skill definition (agent reads this)
+```text
+.agents/skills/predict-calibration/
+├── SKILL.md
+├── LICENSE
+├── README.md
 └── reference/
-    ├── evidence-summary.md                    # 58-source evidence brief
-
-    ├── elephant-quick-reference.md            # ELEPHANT anti-sycophancy taxonomy
-    └── cognitive-load-classification.md       # Extraneous / intrinsic / germane guide
+    ├── evidence-summary.md
+    ├── elephant-quick-reference.md
+    └── cognitive-load-classification.md
 ```
 
-## Evidence Base
+Keep the instructions, license and all three references together. Check an existing destination before replacing it. No Path backend, API credentials or package installation is required by the skill.
 
-The methodology is grounded in a 58-source evidence corpus (peer-reviewed publications plus qualified preprints) spanning neuroscience of programming, educational psychology, AI-skill interaction, judgment quality research, and mnemonic encoding optimization. The evidence converges on a core finding: how developers interact with AI tools — not just whether they use them — determines whether skills are preserved or eroded.
+Ask the host to use **predict-calibration**, then confirm it discovers the skill and respects your preferences. Host support and adherence vary; copying files does not guarantee either.
 
-Key research themes include:
-- **Interaction pattern matters** — Prediction-based engagement with AI is associated with better skill formation than passive delegation
-- **Retention deficits from unrestricted AI use** — Controlled studies show measurable retention deficits when AI eliminates productive struggle
-- **Sycophancy harms judgment** — Large-scale research demonstrates that unwarranted positive AI feedback makes decisions worse, not just unhelpful
-- **Cognitive load classification** — Not all AI help is equal; automating boilerplate is safe, but replacing reasoning and debugging prevents learning
+## Help and privacy
 
-### Honest Qualifiers
+- [Research findings and their limits](reference/evidence-summary.md): the learning rationale and what the studies actually establish.
+- [Examples of useful feedback](reference/elephant-quick-reference.md): correcting an error without flattery or unnecessary harshness.
+- [Choosing the right amount of guidance](reference/cognitive-load-classification.md): when to explain, invite practice or simply do the work.
 
-- The predict-compare-update cycle has convergent support but no dedicated RCT testing it in AI coding contexts
-- Most studies are from academic settings — transfer to professional development is assumed but not directly tested
-- The ELEPHANT taxonomy was developed from observational analysis, not controlled experiments varying each behavior independently
-- These are experimental findings applied as design principles. The evidence is strong and convergent, but this specific implementation is itself unvalidated
+### Your data and control
 
-## How It Works With Your Workflow
+The instructions add no telemetry, cognitive scoring or independent memory. Your host’s storage, tools and privacy policies still apply.
 
-The skill modifies *how* the agent codes with you, not *what* it builds. All normal coding practices, testing, and quality standards still apply. The agent reads the room — if you're in flow state and productive, calibration intensity decreases. If you're exploring or learning, it increases. If you say "just write it," it writes it.
+The agent should distinguish performed checks from reported results, acknowledge uncertainty and correct itself. It must not invent capabilities or diagnose your abilities.
 
-## About
+The historical 58-source snapshot includes experiments, reviews, preprints and perspectives, not 58 validations of this skill. Academic findings do not automatically transfer to professional programming.
 
-Built by [az8T Lab](https://az8tlab.app). Based on the same research behind the [Predict](https://marketplace.visualstudio.com/items?itemName=az8tlab.predict-ai-calibration) VS Code extension.
+### For maintainers
 
-## License
+Run `node companion/scripts/check-skill-structure.mjs` from the containing project to check parity, references and instruction safeguards, not learning effectiveness. This update reuses existing predictions, keeps feedback focused, makes checks concrete and loads reference material only when needed. No marketplace publication is claimed.
 
-MIT
+MIT · [LICENSE](LICENSE)
