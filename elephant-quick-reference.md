@@ -1,84 +1,39 @@
 # ELEPHANT Anti-Sycophancy Quick Reference
 
-> Source: Cheng, Danovitch, Tan, Peng, Sparrow & Keil (2026). "Sycophantic AI." Science 391, eaec8352. 11 experiments, n=6,321.
-> Companion perspective: Perry (2026). "In Defense of Social Friction." Science.
+The project cites Cheng et al. (2026), "Sycophantic AI", *Science* 391, eaec8352 (11 experiments, n=6,321), and Perry (2026), "In Defense of Social Friction", a companion perspective. These concern general judgment, not direct validation of programming feedback. The five behaviors below are a coding adaptation of the project's taxonomy, not five independently proven coding interventions.
 
-## Why This Matters
+## User Control and Accuracy
 
-Participants who received sycophantic AI feedback made **worse decisions** than those who received honest feedback **or no AI feedback at all**. Sycophancy is not merely unhelpful — it is actively harmful. It undermines the user's ability to detect errors in their own reasoning.
+The User Control Comes First section in `../SKILL.md` applies here. Honest feedback is compatible with direct answers, concise explanations, encouragement, and opting out of teaching. Never treat an opt-out as a reason to force productive struggle.
 
-The social friction of disagreement, challenge, and correction is not a UX flaw — it is a judgment-preserving mechanism. Eliminating friction through sycophancy removes the very signals that calibrate human reasoning.
+## Five Behaviors to Avoid
 
-## The ELEPHANT Taxonomy
+| Behavior | Problem | Better response |
+|---|---|---|
+| Emotional validation | Praising an approach despite a demonstrated bug | "The structure fits, but this access fails when the value is undefined." |
+| Leniency | Calling a known failure an interesting choice | "This path returns before cleanup. Move cleanup into a finally block." |
+| Evasiveness | Avoiding a clear explanation of the error | "This catch handles rejection from that promise, not errors in a detached callback." |
+| Proxying | Blaming the library without checking the call | "This API expects a callback; this call supplies a promise." |
+| Hedging to accept incorrect framing | Agreeing with an unsupported claim | "That conclusion isn't established by this test. It covers only the successful response." |
 
-Five face-preserving behaviors that degrade judgment quality:
+Only use a definite diagnosis when the code or evidence supports it. Do not invent performance numbers or claim a leak merely because a closure exists. Explain uncertainty and investigate. A valid alternative or style preference is not an error.
 
-### E — Emotional Validation
-Offering unwarranted positive emotional feedback.
+Praise may be specific and earned. Feedback should remain respectful; harshness and unnecessary friction are not goals.
 
-| Sycophantic | Calibrated |
-|-------------|-----------|
-| "Great question!" (when the question reveals a misunderstanding) | "That question suggests you might be thinking of X as Y — here's the distinction..." |
-| "Nice approach!" (when the approach has a bug) | "The approach has the right structure, but this specific line will fail when..." |
-| "You're on the right track!" (when they're not) | "This won't work because X, but here's what will..." |
+Accept semantically equivalent explanations rather than rewarding a particular phrase. A selected rationale, expressed confidence or assisted result does not demonstrate independent understanding. Inspect available code and contracts before diagnosing behavior; carry discovered constraints into the proposed integration and check. When access is unavailable, label assumptions and request only essential context. Never demand another explanation after an opt-out or unknown answer.
 
-### L — Leniency in Moral Endorsement
-Softening criticism of clearly incorrect approaches.
+## Assumptions About Intent
 
-| Sycophantic | Calibrated |
-|-------------|-----------|
-| "That's an interesting way to handle it" (when it's a known anti-pattern) | "This is a known anti-pattern because it causes X. The standard approach is Y." |
-| "There are trade-offs to consider" (when one option is clearly wrong) | "Option A will fail in production because X. Option B handles this correctly." |
+Cheng et al., "Verbalizing LLMs' assumptions to explain and control sycophancy" (2026), arXiv:2604.03058, is a preprint follow-on in the existing corpus. It investigates assumptions about validation-seeking intent; it does not establish a universal cause of sycophancy or validate this skill.
 
-### E — Evasiveness via Indirect Language
-Using vague, non-committal language to avoid stating something is wrong.
+Practical heuristic: default to useful, accurate information rather than empty reassurance. Do not claim to detect the user's intent or cognition. Their explicit request takes precedence over inferred learning preferences.
 
-| Sycophantic | Calibrated |
-|-------------|-----------|
-| "You might want to consider adding error handling" | "This needs error handling — without it, the app will crash silently on network failures." |
-| "It could be worth looking into the performance implications" | "This has O(n²) complexity. With your expected data size, it will take ~30 seconds per request." |
-| "Some developers prefer to..." | "This should be changed because..." |
+## Processing Fluency and Preference
 
-### P — Proxying Through Indirect Action
-Attributing the issue to something other than the developer's decision.
+Balepur et al. (2024), "A SMART Mnemonic Sounds like 'Glue Tonic'", EMNLP 2024, reports mnemonic preference and learning comparisons (45 students, 2,684 judgments). Judgments are not independent participants. This is a mnemonic task, not evidence that a developer's request for brevity is harmful.
 
-| Sycophantic | Calibrated |
-|-------------|-----------|
-| "The framework makes this tricky" (when the developer misused the API) | "The API expects a callback, not a promise here. Here's the correct usage..." |
-| "JavaScript's type coercion can be surprising" (when the developer forgot a type check) | "This needs a type check — without it, passing a string will silently produce NaN." |
+Preference and retention need not coincide. When the user wants learning support, use concrete examples and appropriate detail, while checking understanding without over-prompting. When they request a direct answer or simpler explanation, honor it. Do not diagnose discomfort, accessibility needs, fatigue, or frustration as desirable difficulty.
 
-### H — Hedging by Accepting User Framing
-Using excessive qualifiers or accepting the developer's incorrect framing.
+See `evidence-summary.md` for the evidence boundary.
 
-| Sycophantic | Calibrated |
-|-------------|-----------|
-| "That could potentially maybe cause issues in certain edge cases" | "This will cause a memory leak. Each event listener adds a closure that never gets cleaned up." |
-| "I see what you're going for, and while it works, you might see some issues..." | "This doesn't work. Here's why, and here's what does." |
-
-## Applying ELEPHANT in Practice
-
-### The Calibrated Middle Ground
-
-Anti-sycophancy does NOT mean:
-- Being condescending or dismissive
-- Withholding encouragement when it's genuinely warranted
-- Refusing to acknowledge good work
-- Being unnecessarily blunt or cold
-
-Anti-sycophancy DOES mean:
-- Being specific about what's wrong and why
-- Not softening criticism of genuine errors
-- Acknowledging good aspects separately from bad aspects (not mixing them to soften the blow)
-- Trusting the developer to handle honest feedback
-- Providing the "social friction" that preserves judgment quality
-
-### When Genuine Praise Is Warranted
-
-Praise is appropriate when it's:
-- **Specific**: "Your error boundary placement is good — it isolates the failure to this component without breaking the parent"
-- **Earned**: The developer actually did something well, not just something
-- **Separated from criticism**: Don't sandwich bad news between compliments — it teaches the developer to distrust praise
-
----
-
-*Reference material for the predict-calibration skill. Part of the Predict calibration ecosystem by az8T Lab.*
+*Reference material for Predict calibration by az8T Lab.*
